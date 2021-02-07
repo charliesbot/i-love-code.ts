@@ -1,103 +1,90 @@
-# TSDX User Guide
+# ILoveCode
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+This project was generated using [Nx](https://nx.dev).
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Commands
+## Adding capabilities to your workspace
 
-TSDX scaffolds your new library inside `/src`.
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-To run TSDX, use:
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-```bash
-npm start # or yarn start
-```
+Below are our core plugins:
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+- [React](https://reactjs.org)
+  - `npm install --save-dev @nrwl/react`
+- Web (no framework frontends)
+  - `npm install --save-dev @nrwl/web`
+- [Angular](https://angular.io)
+  - `npm install --save-dev @nrwl/angular`
+- [Nest](https://nestjs.com)
+  - `npm install --save-dev @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `npm install --save-dev @nrwl/express`
+- [Node](https://nodejs.org)
+  - `npm install --save-dev @nrwl/node`
 
-To do a one-off build, use `npm run build` or `yarn build`.
+There are also many [community plugins](https://nx.dev/nx-community) you could add.
 
-To run tests, use `npm test` or `yarn test`.
+## Generate an application
 
-## Configuration
+Run `nx g @nrwl/react:app my-app` to generate an application.
 
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+> You can use any of the plugins above to generate applications as well.
 
-### Jest
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-Jest tests are set up to run with `npm test` or `yarn test`.
+## Generate a library
 
-### Bundle Analysis
+Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
+> You can also use any of the plugins above to generate libraries as well.
 
-#### Setup Files
+Libraries are shareable across libraries and applications. They can be imported from `@i-love-code/mylib`.
 
-This is the folder structure we set up for you:
+## Development server
 
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-### Rollup
+## Code scaffolding
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 
-### TypeScript
+## Build
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Continuous Integration
+## Running unit tests
 
-### GitHub Actions
+Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
 
-Two actions are added by default:
+Run `nx affected:test` to execute the unit tests affected by a change.
 
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
+## Running end-to-end tests
 
-## Optimizations
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
+## Understand your workspace
 
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
-```
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+## Further help
 
-## Module Formats
+Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-CJS, ESModules, and UMD module formats are supported.
+## ☁ Nx Cloud
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+### Computation Memoization in the Cloud
 
-## Named Exports
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
 
-## Including Styles
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
+Visit [Nx Cloud](https://nx.app/) to learn more.

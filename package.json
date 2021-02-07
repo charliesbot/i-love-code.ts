@@ -1,55 +1,80 @@
 {
-  "version": "0.1.0",
+  "name": "i-love-code",
+  "version": "0.0.0",
   "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "nx": "nx",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "lint": "nx workspace-lint && nx lint",
+    "e2e": "nx e2e",
+    "affected:apps": "nx affected:apps",
+    "affected:libs": "nx affected:libs",
+    "affected:build": "nx affected:build",
+    "affected:e2e": "nx affected:e2e",
+    "affected:test": "nx affected:test",
+    "affected:lint": "nx affected:lint",
+    "affected:dep-graph": "nx affected:dep-graph",
+    "affected": "nx affected",
+    "format": "nx format:write",
+    "format:write": "nx format:write",
+    "format:check": "nx format:check",
+    "update": "nx migrate latest",
+    "workspace-generator": "nx workspace-generator",
+    "dep-graph": "nx dep-graph",
+    "help": "nx help"
   },
-  "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
+  "private": true,
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "document-register-element": "1.13.1",
+    "next": "10.0.1",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-is": "17.0.1",
+    "styled-components": "5.2.1",
+    "tslib": "^2.0.0"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "data-structures.ts",
-  "author": "Charlie L",
-  "module": "dist/data-structures.ts.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/data-structures.ts.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/data-structures.ts.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.9.1",
-    "husky": "^4.3.8",
-    "size-limit": "^4.9.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.1.0",
-    "typescript": "^4.1.3"
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "@babel/preset-react": "7.9.4",
+    "@babel/preset-typescript": "7.9.0",
+    "@nrwl/cli": "11.2.10",
+    "@nrwl/cypress": "11.2.10",
+    "@nrwl/eslint-plugin-nx": "11.2.10",
+    "@nrwl/jest": "11.2.10",
+    "@nrwl/linter": "11.2.10",
+    "@nrwl/next": "11.2.10",
+    "@nrwl/react": "11.2.10",
+    "@nrwl/tao": "11.2.10",
+    "@nrwl/web": "11.2.10",
+    "@nrwl/workspace": "11.2.10",
+    "@testing-library/react": "11.1.2",
+    "@types/jest": "26.0.8",
+    "@types/node": "12.12.38",
+    "@types/react": "16.9.56",
+    "@types/react-dom": "16.9.9",
+    "@types/react-is": "16.7.1",
+    "@types/styled-components": "5.1.4",
+    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/parser": "4.3.0",
+    "babel-jest": "26.2.2",
+    "babel-plugin-styled-components": "1.10.7",
+    "cypress": "^6.0.1",
+    "dotenv": "6.2.0",
+    "eslint": "7.10.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "jest": "26.2.2",
+    "prettier": "2.2.1",
+    "ts-jest": "26.4.0",
+    "ts-node": "~9.1.1",
+    "typescript": "~4.0.3"
   }
 }
