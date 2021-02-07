@@ -20,11 +20,20 @@ export default class CustomDocument extends Document<{
   render() {
     return (
       <Html>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap"
+          rel="stylesheet"
+        />
         <Head>{this.props.styleTags}</Head>
         <body>
           <Main />
           <NextScript />
         </body>
+        <script
+          async
+          src="https://unpkg.com/wired-elements/lib/wired-elements-iife.js"
+        ></script>
       </Html>
     );
   }
