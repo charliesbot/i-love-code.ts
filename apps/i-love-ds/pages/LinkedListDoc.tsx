@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { RoughContainer } from './roughWrapper/RoughContainer';
-import { Rectangle } from './roughWrapper/Rectangle';
-import { getRandomColor } from './getRandomColor';
-import { LinkedList } from '../src/LinkedList';
-import { RoughText } from './ds/RoughText';
-import { RoughParagraph } from './ds/RoughParagraph';
-import { RoughQuote } from './ds/RoughQuote';
-import { Arrow } from './roughWrapper/Arrow';
-import { Circle } from './roughWrapper/Circle';
+import { LinkedList } from '@data-structures/LinkedList';
+import { RoughContainer } from '@rough/RoughContainer';
+import { Arrow } from '@rough/Arrow';
+import { Rectangle } from '@rough/Rectangle';
+import { Circle } from '@rough/Circle';
+import { RoughText } from '@design-system/RoughText';
+import { RoughParagraph } from '@design-system/RoughParagraph';
+import { RoughQuote } from '@design-system/RoughQuote';
+import { getRandomColor } from '../utils/getRandomColor';
 
 const ActionRow = styled.div({
   display: 'flex',
@@ -42,13 +42,13 @@ const LinkedListDoc = () => {
 
   const deleteHead = () => {
     linkedList.current.deleteHead();
-    const array = linkedList.current?.toArray()!;
+    const array = linkedList.current?.toArray();
     setLinkedListArray([...array]);
   };
 
   const deleteTail = () => {
     linkedList.current.deleteTail();
-    const array = linkedList.current?.toArray()!;
+    const array = linkedList.current?.toArray();
     setLinkedListArray([...array]);
   };
 
@@ -57,7 +57,7 @@ const LinkedListDoc = () => {
     const randomValue = Math.floor(Math.random() * 1000);
     const arrowKey = Math.floor(Math.random() * 1000);
     linkedList.current?.prepend({ color, value: randomValue, arrowKey });
-    const array = linkedList.current?.toArray()!;
+    const array = linkedList.current?.toArray();
     setLinkedListArray([...array]);
   };
 
@@ -66,7 +66,7 @@ const LinkedListDoc = () => {
     const randomValue = Math.floor(Math.random() * 1000);
     const arrowKey = Math.floor(Math.random() * 1000);
     linkedList.current?.append({ color, value: randomValue, arrowKey });
-    const array = linkedList.current?.toArray()!;
+    const array = linkedList.current?.toArray();
     setLinkedListArray([...array]);
   };
 
@@ -134,12 +134,11 @@ const LinkedListDoc = () => {
                   y={100}
                 />
               ) : null}
-              <Rectangle
+              <Circle
                 key={x.value}
                 x={100 + 200 * index}
                 y={50}
-                width={100}
-                height={100}
+                diameter={80}
                 options={{
                   fill: x.color,
                   stroke: x.color,
@@ -156,5 +155,20 @@ const LinkedListDoc = () => {
     </Grid>
   );
 };
+// <Rectangle
+// key={x.value}
+// x={100 + 200 * index}
+// y={50}
+// width={100}
+// height={100}
+// options={{
+// fill: x.color,
+// stroke: x.color,
+// roughness: 3,
+// dashGap: 1,
+// fillWeight: 8,
+// strokeWidth: 5,
+// }}
+// />
 
-export { LinkedListDoc };
+export default LinkedListDoc;

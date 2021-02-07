@@ -11,7 +11,7 @@ type Props = {
   options?: Args[3];
 };
 
-export const Circle: React.FC<Props> = memo(({ x, y, diameter, options }) => {
+const Circle: React.FC<Props> = memo(({ x, y, diameter, options }) => {
   const renderProps = useCallback(
     (rc: RoughSVG) => rc.circle(x, y, diameter, options),
     [x, y, diameter, options]

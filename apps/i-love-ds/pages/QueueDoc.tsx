@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import { RoughContainer } from './roughWrapper/RoughContainer';
-import { Rectangle } from './roughWrapper/Rectangle';
-import { getRandomColor } from './getRandomColor';
-import { Queue } from '../src/Queue';
-import { RoughText } from './ds/RoughText';
-import { RoughParagraph } from './ds/RoughParagraph';
-import { RoughQuote } from './ds/RoughQuote';
-import { Arrow } from './roughWrapper/Arrow';
+import { Queue } from '@data-structures/Queue';
+import { RoughContainer } from '@rough/RoughContainer';
+import { Rectangle } from '@rough/Rectangle';
+import { RoughText } from '@design-system/RoughText';
+import { RoughParagraph } from '@design-system/RoughParagraph';
+import { RoughQuote } from '@design-system/RoughQuote';
+import { getRandomColor } from '../utils/getRandomColor';
 
 const ActionRow = styled.div({
   display: 'flex',
@@ -42,13 +41,13 @@ const QueueDoc = () => {
     const color = getRandomColor();
     const randomValue = Math.floor(Math.random() * 1000);
     queue.current?.enqueue({ color, value: randomValue });
-    const array = queue.current?.toArray()!;
+    const array = queue.current?.toArray();
     setQueueArray([...array]);
   };
 
   const pop = () => {
     queue.current?.dequeue();
-    const array = queue.current?.toArray()!;
+    const array = queue.current?.toArray();
     setQueueArray([...array]);
   };
 
@@ -79,7 +78,6 @@ const QueueDoc = () => {
         </wired-button>
       </ActionRow>
       <RoughContainer height={300} width="100%">
-        <Arrow x={100} y={50} width={100} height={200} />
         {[...queueArray].reverse().map((x, index) => {
           return (
             <Rectangle
@@ -104,4 +102,4 @@ const QueueDoc = () => {
   );
 };
 
-export { QueueDoc };
+export default QueueDoc;

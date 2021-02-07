@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import { RoughContainer } from '../components/roughWrapper/RoughContainer';
-import { Rectangle } from '../components/roughWrapper/Rectangle';
+import { Stack } from '@data-structures/Stack';
+import { RoughContainer } from '@rough/RoughContainer';
+import { Rectangle } from '@rough/Rectangle';
+import { RoughText } from '@design-system/RoughText';
+import { RoughParagraph } from '@design-system/RoughParagraph';
+import { RoughQuote } from '@design-system/RoughQuote';
 import { getRandomColor } from '../utils/getRandomColor';
-import { RoughText } from '../components/ds/RoughText';
-import { RoughParagraph } from '../components/ds/RoughParagraph';
-import { RoughQuote } from '../components/ds/RoughQuote';
-// import { Stack } from '../src/Stack';
-import { Stack } from '@i-love-code/data-structures';
 
 const ActionRow = styled.div({
   display: 'flex',

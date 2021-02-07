@@ -1,10 +1,19 @@
 {
   "version": 2,
-  "cli": { "defaultCollection": "@nrwl/next" },
+  "cli": {
+    "defaultCollection": "@nrwl/next"
+  },
   "generators": {
-    "@nrwl/react": { "application": { "babel": true } },
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
     "@nrwl/next": {
-      "application": { "style": "styled-components", "linter": "eslint" }
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
     }
   },
   "defaultProject": "i-love-ds",
@@ -16,16 +25,23 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "root": "apps/i-love-ds",
             "outputPath": "dist/apps/i-love-ds"
           },
-          "configurations": { "production": {} }
+          "configurations": {
+            "production": {}
+          }
         },
         "serve": {
           "executor": "@nrwl/next:server",
-          "options": { "buildTarget": "i-love-ds:build", "dev": true },
+          "options": {
+            "buildTarget": "i-love-ds:build",
+            "dev": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "i-love-ds:build:production",
@@ -35,17 +51,23 @@
         },
         "export": {
           "executor": "@nrwl/next:export",
-          "options": { "buildTarget": "i-love-ds:build:production" }
+          "options": {
+            "buildTarget": "i-love-ds:build:production"
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/i-love-ds/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/i-love-ds/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/i-love-ds"],
+          "outputs": [
+            "coverage/apps/i-love-ds"
+          ],
           "options": {
             "jestConfig": "apps/i-love-ds/jest.config.js",
             "passWithNoTests": true
@@ -66,12 +88,18 @@
             "devServerTarget": "i-love-ds:serve"
           },
           "configurations": {
-            "production": { "devServerTarget": "i-love-ds:serve:production" }
+            "production": {
+              "devServerTarget": "i-love-ds:serve:production"
+            }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/i-love-ds-e2e/**/*.{js,ts}"] }
+          "options": {
+            "lintFilePatterns": [
+              "apps/i-love-ds-e2e/**/*.{js,ts}"
+            ]
+          }
         }
       }
     },
@@ -82,13 +110,69 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["libs/data-structures/**/*.ts"] }
+          "options": {
+            "lintFilePatterns": [
+              "libs/data-structures/**/*.ts"
+            ]
+          }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data-structures"],
+          "outputs": [
+            "coverage/libs/data-structures"
+          ],
           "options": {
             "jestConfig": "libs/data-structures/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "design-system": {
+      "root": "libs/design-system",
+      "sourceRoot": "libs/design-system/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/design-system/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/design-system"
+          ],
+          "options": {
+            "jestConfig": "libs/design-system/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "rough": {
+      "root": "libs/rough",
+      "sourceRoot": "libs/rough/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/rough/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/rough"
+          ],
+          "options": {
+            "jestConfig": "libs/rough/jest.config.js",
             "passWithNoTests": true
           }
         }

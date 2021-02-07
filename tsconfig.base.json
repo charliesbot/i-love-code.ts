@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@i-love-code/data-structures": ["libs/data-structures/src/index.ts"]
+      "@data-structures/*": ["libs/data-structures/src/lib/*"],
+      "@design-system/*": ["libs/design-system/src/lib/*"],
+      "@rough/*": ["libs/rough/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

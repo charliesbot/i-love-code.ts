@@ -18,6 +18,8 @@
   "projects": {
     "i-love-ds": { "tags": [] },
     "i-love-ds-e2e": { "tags": [], "implicitDependencies": ["i-love-ds"] },
-    "data-structures": { "tags": [] }
+    "data-structures": { "tags": [] },
+    "design-system": { "tags": [] },
+    "rough": { "tags": [] }
   }
 }

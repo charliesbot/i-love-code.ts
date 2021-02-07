@@ -8,7 +8,7 @@ type Props = {
   size: number;
 };
 
-export const Arrow: React.FC<Props> = memo(({ x, y, size, options }) => {
+const Arrow: React.FC<Props> = memo(({ x, y, size, options }) => {
   const renderProps = useCallback(
     (rc: RoughSVG) => {
       const head = rc.path('M1 14L13 7.5L1 0.999999', { stroke: 'black' });

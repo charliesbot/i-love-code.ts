@@ -6,7 +6,7 @@ type Props = {
   fontSize?: number;
 };
 
-const Text = styled.p(props => ({
+const Text = styled.p((props) => ({
   fontFamily: "'Reenie Beanie', cursive",
   fontSize: props.fontSize ?? 24,
 }));

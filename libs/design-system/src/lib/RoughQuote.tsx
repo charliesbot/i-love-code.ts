@@ -6,7 +6,7 @@ type Props = {
   fontSize?: number;
 };
 
-const Text = styled.blockquote(props => ({
+const Text = styled.blockquote((props) => ({
   fontFamily: "'Reenie Beanie', cursive",
   fontSize: props.fontSize ?? 24,
   background: '#f9f9f9',

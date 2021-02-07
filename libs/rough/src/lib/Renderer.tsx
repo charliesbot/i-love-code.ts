@@ -1,8 +1,7 @@
 import { useContext, useRef } from 'react';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-// @ts-ignore
 import rough from 'roughjs/bundled/rough.cjs';
-// roughjs/bundled/rough.esm.js
+import { RoughSVG } from 'roughjs/bin/svg';
 import { RoughContext } from './RoughContainer';
 
 type RenderFn = (rc: RoughSVG) => SVGElement | SVGElement[];
@@ -10,6 +9,7 @@ type RenderFn = (rc: RoughSVG) => SVGElement | SVGElement[];
 type Props = {
   render: RenderFn;
 };
+
 const Renderer = ({ render }: Props) => {
   const { ref, config } = useContext(RoughContext);
   const RoughSVG = useRef(rough.svg);
